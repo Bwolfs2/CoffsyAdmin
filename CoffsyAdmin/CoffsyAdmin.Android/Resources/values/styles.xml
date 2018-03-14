@@ -12,6 +12,8 @@
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- colorPrimary is used for the default action bar background -->
     <item name="colorPrimary">#2196F3</item>
+    <!--Status Bar-->
+    <item name="android:statusBarColor">#000</item>
     <!-- colorPrimaryDark is used for the status bar -->
     <item name="colorPrimaryDark">#1976D2</item>
     <!-- colorAccent is used as the default value for colorControlActivated
@@ -21,6 +23,8 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
 
+    <item name="android:colorActivatedHighlight">#ff0000 </item>
+  
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
 

@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Coffsy.Core.Menu;
+using CoffsyAdmin.Menu;
+using CoffsyAdmin.Pages;
+using CoffsyAdmin.ViewModels;
+using Prism.Ioc;
+using Prism.Unity;
 using Xamarin.Forms;
 
 namespace CoffsyAdmin
 {
-	public partial class App : Application
-	{
-		public App ()
-		{
-			InitializeComponent();
+	public partial class App : PrismApplication
+    {
+        protected override async void OnInitialized()
+        {
+            InitializeComponent();
 
-			MainPage = new CoffsyAdmin.MainPage();
-		}
+            await NavigationService.NavigateAsync("MainMasterDetailPage/PrismNavigationPage/Home");
+        }
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        {
+            containerRegistry.RegisterForNavigation<PrismNavigationPage, PrismNavigationPageViewModel>("PrismNavigationPage");
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+            containerRegistry.RegisterForNavigation<MainMasterDetailPageMasterDetailPage, MainMasterDetailPageViewModel>("MainMasterDetailPage");
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+            containerRegistry.RegisterForNavigation<Home, HomeViewModel>("Home");
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+            containerRegistry.RegisterForNavigation<Message>("Message");
+
+            containerRegistry.RegisterForNavigation<Friends>("Friends");
+        }
+
+    }
 }

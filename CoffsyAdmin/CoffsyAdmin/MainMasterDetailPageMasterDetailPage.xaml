@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="CoffsyAdmin.MainMasterDetailPageMasterDetailPage"
+                  Title="Master Detail">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Default" Icon="icon" >
+            <StackLayout Orientation="Vertical">
+                <StackLayout>
+                    <Image Source="fundo_menu" HeightRequest="110"   HorizontalOptions="FillAndExpand"  Aspect="AspectFill"></Image>
+                </StackLayout>
+                <Image Source="bwolf_rounded" WidthRequest="100" HeightRequest="100" Margin="0,-50,0,0"></Image>
+
+                <Label Text="Vilson Dauinheimer" FontSize="20" HorizontalTextAlignment="Center"/>
+                <Label Text="+55 54 99690166" FontSize="14" HorizontalTextAlignment="Center"/>
+                
+                <ListView ItemsSource="{Binding Items}"                          
+                          RowHeight="60"
+                          Margin="0"
+                          ItemSelected="ListView_OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20">
+                                    <Image Source="{Binding Icon}"
+                                           WidthRequest="24"
+                                           HeightRequest="24"
+                                           VerticalOptions="Center" />
+                                    <Label Text="{Binding Title}" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
